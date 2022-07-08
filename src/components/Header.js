@@ -1,12 +1,18 @@
 import React from 'react'
+import Button from './Button'
 
-const Header = () => {
-  
+const Header = ({title}) => {
 
+    const onAdd = () => {
+        console.log("Clicked");
+    }
 
     return (
     <>
-    <div>ㅎㅋㅋ</div>
+    <header className="header">
+        <h1>인사말 : {title}</h1>
+    </header>
+    <Button text="add" onAdd={onAdd}/>
     </>
     )
 }
