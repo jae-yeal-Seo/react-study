@@ -2,17 +2,16 @@ import React from 'react'
 import Task from './Task'
 
 
+const Tasks = ({tasks,onDelete,onRemind}) => {
 
-const Tasks = ({tasks}) => {
-
-
+ 
 
   return (
     <div>
         <ul>
         {tasks.map((task) => {
             return (
-               <Task key={task.id} task={task}/>
+               <Task key={task.id} task={task} onDelete={onDelete} onRemind={onRemind}/>
             )  
         })}
         </ul>

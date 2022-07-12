@@ -27,11 +27,31 @@ function App() {
     }
 ])
 
+  const onDelete = (taskId) => {
+    console.log(taskId)
+    const newTasks = tasks.filter(task => task.id !== taskId)
+    setTasks(newTasks);
+  }
+
+  const onRemind = (taskId) => {
+    let newTasks = tasks.map(task => {
+      if (taskId === task.id) {
+        return {
+          ...task,
+          reminder: !task.reminder,
+        };
+      } else {
+        return task;
+      }
+    });
+    setTasks(newTasks);
+  }
+
   return (
     <div className="App">
      <h1>Hello From React</h1>
      <Header title="Hello"/>
-     <Tasks tasks={tasks}/>
+     <Tasks tasks={tasks} onDelete={onDelete} onRemind={onRemind}/>
      <div>
      </div>
     </div>
